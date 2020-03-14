@@ -1,17 +1,23 @@
 import { Component, OnInit, OnDestroy, HostListener } from "@angular/core";
+import { LoginService } from '../../../services/login.service';
+import { User } from '../../../models/user.model';
 
 @Component({
   selector: 'app-registerpage',
-  templateUrl: "registerpage.component.html"
+  templateUrl: "registerpage.component.html",
+  providers: [ LoginService ]
 })
 export class RegisterpageComponent implements OnInit, OnDestroy {
+
+  public user : User;
   isCollapsed = true;
   focus;
   focus1;
   focus2;
   mostrar: boolean;
-  constructor() {
+  constructor(private loginService: LoginService) {
     this.mostrar = true;
+    this.user = new User();
   }
   @HostListener("document:mousemove", ["$event"])
   onMouseMove(e) {
@@ -24,8 +30,8 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
     var squares7 = document.getElementById("square7");
     var squares8 = document.getElementById("square8");
 
-    var posX = e.clientX - window.innerWidth / 2;
-    var posY = e.clientY - window.innerWidth / 6;
+    var posX = window.innerWidth / 2;
+    var posY =  window.innerWidth / 6;
 
     squares1.style.transform =
       "perspective(500px) rotateY(" +
@@ -75,6 +81,18 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
       "deg) rotateX(" +
       posY * -0.02 +
       "deg)";
+  }
+
+  validateLogin() {
+  	if(this.user.username && this.user.password) {
+  		this.loginService.validateLogin(this.user).subscribe(result => {
+        console.log('result is ', result);
+      }, error => {
+        console.log('error is ', error);
+      });
+  	} else {
+  		alert('enter user name and password');
+  	}
   }
 
   ngOnInit() {

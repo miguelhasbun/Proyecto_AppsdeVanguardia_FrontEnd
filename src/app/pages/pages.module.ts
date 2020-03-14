@@ -24,6 +24,7 @@ import { LandingpageComponent } from "./examples/landingpage/landingpage.compone
 import { CamaraComponent } from './examples/camara/camara.component';
 import {WebcamModule} from 'ngx-webcam';
 
+
 @NgModule({
   imports: [
     WebcamModule,

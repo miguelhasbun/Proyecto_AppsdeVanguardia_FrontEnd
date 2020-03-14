@@ -47,15 +47,14 @@
                                                 <i class="tim-icons icon-badge"> </i>
                                             </div>
                                         </div>
-                                        <input class="form-control" placeholder="Nombre" type="text" (focus)="focus1 = true" (blur)="focus1 = false" />
-                                    </div>
+                                        <input name="Nombre" [(ngModel)]="user.username" type="email" id="inputEmail" class="form-control" placeholder="Usuario" required autofocus> </div>
                                     <div class="input-group" [ngClass]="{ 'input-group-focus': focus2 === true }">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
                                                 <i class="tim-icons icon-image-02"> </i>
                                             </div>
                                         </div>
-                                        <input class="form-control" placeholder="Usuario" type="text" (focus)="focus2 = true" (blur)="focus1 = false" />
+                                        <input class="form-control" placeholder="Nombre" type="text" (focus)="focus2 = true" (blur)="focus1 = false" />
                                     </div>
                                     <div class="input-group" [ngClass]="{ 'input-group-focus': focus2 === true }">
                                         <div class="input-group-prepend">
@@ -63,8 +62,7 @@
                                                 <i class="tim-icons icon-lock-circle"> </i>
                                             </div>
                                         </div>
-                                        <input class="form-control" placeholder="Clave" type="text" (focus)="focus2 = true" (blur)="focus2 = false" />
-                                    </div>
+                                        <input name="password" [(ngModel)]="user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required> </div>
                                     <div class="input-group" [ngClass]="{ 'input-group-focus': focus3 === true }">
                                         <div class="input-group-prepend">
                                             <div class="col-sm-6">
@@ -76,7 +74,7 @@
                                 </form>
                             </div>
                             <div class="card-footer">
-                                <a *ngIf="mostrar" class="  btn btn-danger btn-round btn-lg " href="javascript:void(0)" [routerLink]="['/landing']">Empezar </a>
+                                <a *ngIf="mostrar" class="  btn btn-danger btn-round btn-lg " (click)="validateLogin();" href="javascript:void(0)" [routerLink]="['/landing']">Empezar </a>
                             </div>
                         </div>
                     </div>

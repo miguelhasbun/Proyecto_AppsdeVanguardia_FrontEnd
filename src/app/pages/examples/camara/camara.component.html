@@ -1,8 +1,7 @@
 <div style="text-align:center">
     <div>
-        <webcam [height]="100" [width]="100" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam" [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
-            (initError)="handleInitError($event)"></webcam><br/>
-        <div class="actionBtn" (click)="triggerSnapshot();" title="Foto Pal Feo">📸</div>
+        <webcam [height]="100" [width]="100"></webcam><br/>
+        <div class="actionBtn" title="Foto Pal Feo">📸</div>
 
     </div>
 </div>

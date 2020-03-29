@@ -10,10 +10,11 @@ export class LoginService {
     }
      
     validateLogin(user: User){
-        return this.http.post('mongodb+srv:// BorisGerardo:1234@cluster0-pyexl.azure.mongodb.net/test?retryWrites=true&w=majority',{
+        return this.http.post('mongodb+srv:// BorisGerardo:1234@cluster0-pyexl.azure.mongodb.net/test?retryWrites=true&w=majority',
+        {
             username : user.username,
             password : user.password
-        })
+        });
     }
  
 }

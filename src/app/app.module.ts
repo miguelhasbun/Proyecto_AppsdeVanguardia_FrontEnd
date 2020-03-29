@@ -7,13 +7,14 @@ import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 
 
-
+import {IssueService} from "./services/issue.service";
 import { PagesModule } from "./pages/pages.module";
 
 import { IndexComponent } from "./pages/index/index.component";
 import { ProfilepageComponent } from "./pages/examples/profilepage/profilepage.component";
 import { RegisterpageComponent } from "./pages/examples/registerpage/registerpage.component";
 import { LandingpageComponent } from "./pages/examples/landingpage/landingpage.component";
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { LandingpageComponent } from "./pages/examples/landingpage/landingpage.c
     // CarouselModule.forRoot(),
     // ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [IssueService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
